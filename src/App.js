@@ -1,79 +1,34 @@
-import { Form, Button, Row, Col, Alert } from "react-bootstrap";
-import { useState } from "react";
+import { BrowserRouter, Route } from 'react-router-dom'
 import "./App.css";
+import Login from './Login'
+import Registro from './Registro'
+import AreaCliente from './AreaCliente'
+import Cabecera from './Cabecera'
+
+import { useState } from "react";
+
 
 
 function App() {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [feedback, setFeedback] = useState({ empty: true });
 
-  function enviar() {
-    fetch("http://localhost:3001/login", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ email: email, password: password }),
-    })
-      .then((res) => res.json())
-      .then(function (datos) {
-        setFeedback(datos);
-        setTimeout(() => {
-          setFeedback({ empty: true });
-        }, 5000);
-      });
-  }
-
-  
+  const [usuario, setUsuario] = useState ({})//aqui tenemos guardado el usuario que hemos recibido
 
   return (
-    <Row>
-      <Col></Col>
-      <Col>
-        <Form>
-          <Form.Group controlId="formBasicEmail">
-            <Form.Label>Email address</Form.Label>
-            <Form.Control
-              type="email"
-              placeholder="Enter email"
-              onChange={(e) => setEmail(e.target.value)}
-              value={email}
-            />
-            <Form.Text className="text-muted">
-              We'll never share your email with anyone else.
-            </Form.Text>
-          </Form.Group>
-
-          <Form.Group controlId="formBasicPassword">
-            <Form.Label>Password</Form.Label>
-            <Form.Control
-              type="password"
-              placeholder="Password"
-              onChange={(e) => setPassword(e.target.value)}
-              value={password}
-            />
-          </Form.Group>
-          <Form.Group controlId="formBasicCheckbox">
-            <Form.Check type="checkbox" label="Check me out" />
-          </Form.Group>
-          <Button variant="primary" onClick={() => enviar()}>
-            Enviar
-          </Button>
-          <Form.Group>
-            {feedback.empty ? (
-              <h1> </h1>
-            ) : (
-              <Alert variant={feedback.logged ? "success" : "danger"}>
-                {feedback.mensaje}
-              </Alert>
-            )}
-          </Form.Group>
-        </Form>
-      </Col>
-      <Col></Col>
-    </Row>
-  );
+    <>
+    <BrowserRouter>
+    <Cabecera />
+    <Route path="/login">
+    <Login usuario={usuario} setUsuario={setUsuario} /> {/* enviamos el usuario y la capacidad de modificarlo */}
+    </Route>
+    <Route path="/registrate">
+    <Registro />
+    </Route>
+    <Route path="/areacliente">
+    <AreaCliente usuario={usuario} setUsuario={setUsuario}/>
+    </Route>
+    </BrowserRouter>
+    </>
+  )
 }
 
 export default App;
