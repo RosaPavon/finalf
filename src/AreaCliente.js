@@ -16,7 +16,7 @@ function AreaCliente(props) {
         <Form>
             <h2>Área de cliente</h2>
             <Form.Group controlId="formBasicUsers">
-              <Form.Label>Usuario</Form.Label>
+              <Form.Label>{props.usuarioEmail}</Form.Label>
               <Form.Control 
                 type="text"
                 placeholder="usuario"                                              

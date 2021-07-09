@@ -1,0 +1,1 @@
+export {default} from "./Admin" //la exportación de este fichero

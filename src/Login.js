@@ -13,6 +13,7 @@ function Login(props) {//si no ponemos props no recibe el usuario
       console.log("llamada1")
       fetch("http://localhost:3001/login", {
         method: "POST",
+        
         headers: {
           "Content-Type": "application/json",
         },
@@ -29,7 +30,7 @@ function Login(props) {//si no ponemos props no recibe el usuario
           }else{
             props.setUsuarioEmail("")
           }
-          
+
                            
         }).then(()=>{
           console.log("Llamada2")
