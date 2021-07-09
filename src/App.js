@@ -12,13 +12,15 @@ import { useState } from "react";
 function App() {
 
   const [usuario, setUsuario] = useState ({})//aqui tenemos guardado el usuario que hemos recibido
+  const [usuarioEmail, setUsuarioEmail] = useState("")
+
 
   return (
     <>
     <BrowserRouter>
     <Cabecera />
     <Route path="/login">
-    <Login usuario={usuario} setUsuario={setUsuario} /> {/* enviamos el usuario y la capacidad de modificarlo */}
+    <Login usuario={usuario} setUsuario={setUsuario}  usuarioEmail={usuarioEmail} setUsuarioEmail={setUsuarioEmail}/> {/* enviamos el usuario y la capacidad de modificarlo */}
     </Route>
     <Route path="/registrate">
     <Registro />

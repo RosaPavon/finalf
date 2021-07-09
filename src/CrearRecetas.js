@@ -27,16 +27,30 @@ function CrearRecetas() {
       }
 
       //____________Mostrar recetas_______________
-
       
-      const [data, setData]=useState([]) 
+    const [data, setData]=useState([]) 
+
+
     useEffect(()=>{    
-    fetch("http://localhost:3001/crearreceta/misrecetas").then(res => res.json()).then((datos)=>setData(datos.results))
-    },[data])
+    fetch("http://localhost:3001/crearreceta/misrecetas")
+    .then(res => res.json())
+    .then((datos)=>setData(datos.contenido))
+    },[])
 
-  let recetario = data
- 
+  
 
+    let mostrarRecetas = data.map((recetas, index) => {
+      
+        return (
+          <div className="card" key={recetas._id}>
+            <div className="card-body">
+            <h5 className="card-title">{recetas.titulo}</h5>
+            <p className="card-text">{recetas.receta}</p>
+          </div>
+          </div>
+        );
+      
+    });
     return (
       <>
      <Row>        
@@ -82,14 +96,9 @@ function CrearRecetas() {
          </Row>
 
          <h1>Recetas</h1>
-     <ul>
-     <div className="catalogo">{recetario}</div>
-   </ul>
+         <div className="catalogo">{mostrarRecetas}</div>
         
-      
-
-
-    </>
+          </>
     );
 }
 

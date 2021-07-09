@@ -10,6 +10,7 @@ function Login(props) {//si no ponemos props no recibe el usuario
     
     
     function enviar() {
+      console.log("llamada1")
       fetch("http://localhost:3001/login", {
         method: "POST",
         headers: {
@@ -17,21 +18,37 @@ function Login(props) {//si no ponemos props no recibe el usuario
         },
         body: JSON.stringify({ email: email, password: password }),
       })
-        .then((res) => res.json())
+        .then((res) => res.json(), props.setUsuarioEmail(email), setEmail(""), setPassword(""))
         .then(function (datos) {
-          setFeedback(datos);
-          props.setUsuario(datos.user)//esto modifica el usuario de app
+          if(datos.logged){
+          setFeedback(datos);          
           console.log(datos)
-            setTimeout(() => {
-            setFeedback({ empty: true });
-            setEmail("")
-            setPassword("")
-            
-          }, 6000);          
+          setTimeout(() => {
+          setFeedback({ empty: true });                
+          }, 6000); 
+          }else{
+            props.setUsuarioEmail("")
+          }
           
-        });
-    }
+                           
+        }).then(()=>{
+          console.log("Llamada2")
+          if(feedback.logged){
+            fetch("http://localhost:3001/usuario",{
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ email: props.usuarioEmail}),
+          })
+          .then ((res) => res.json())
+          .then((datos)=>props.setUsuario(datos.user), props.setUsuarioEmail("")
+        )//esto modifica el usuario de app         
 
+          }  
+        
+    })
+  }
 
   
     return (
