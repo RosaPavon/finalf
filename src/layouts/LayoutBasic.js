@@ -1,39 +1,41 @@
 import React from "react"
-import { Route } from "react-router"
-import {Container, Nav, Row} from "react-bootstrap"
+import { Route, Switch } from "react-router"
+import {Container, Row} from "react-bootstrap"
+import Cabecera from "../components/Admin/Cabecera"
+
 
 function LayoutBasic(props){
     const { routes } = props
     return(
+        <>
+        <Cabecera/>
         <Container>
-        <h2>Menu Sider basic</h2>
-        <Container>
-               <Nav className="justify-content-center">
-              <Nav.Item>
-              <Nav>Home</Nav>
-              </Nav.Item>
-              </Nav>
             <Row>
-                <LoadRoutersBasic routes={routes} />
+                <LoadRoutesBasic routes={routes} />
             </Row>
             <Row>
                 .......Footer......
             </Row>
         </Container>
-        </Container>
+        </>
     )
 }
 
-function LoadRoutersBasic({routes}){
+function LoadRoutesBasic({routes}){
     //console.log(routes)
-    return routes.map((route, index)=>(
+    return (
+        <Switch>
+            {routes.map((route, index)=>(
             <Route
             key={index}
             path={route.path}
             exact={route.exact}
             component={route.component}//aqui si ponemos component porque solo se va a renderizar uno, no mediante rutas
             />
-    ))
+            ))}
+        </Switch>
+
+    )  
     
 }
 
