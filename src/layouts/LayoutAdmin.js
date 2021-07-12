@@ -7,11 +7,14 @@ import { Redirect } from "react-router-dom"
 
 
 
+
 function LayoutAdmin(props){
     //console.log(props)
     const { routes } = props
     
     const user=null
+
+
 
     if (!user){
         return(
