@@ -6,6 +6,8 @@ import { Tabs } from 'antd';
 
 
 function Registro() {
+
+  //Registrar Usuario
     const [usuario, setUsuario] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
@@ -13,10 +15,6 @@ function Registro() {
     const [feedback, setFeedback] = useState({ empty: true });
 
     const { TabPane } = Tabs;
-
-  function callback(key) {
-     console.log(key);
-   }
 
     function registrar() {
         fetch("http://localhost:3001/usuarios/registro", {
@@ -37,53 +35,85 @@ function Registro() {
             setPassword("")
             setrepPassword("")
 
-
-            
+           
           });
         
       }
 
+       //Login Usuario
+
+       const [emaillogin, setEmaillogin] = useState("");
+       const [passwordlogin, setPasswordlogin] = useState("");
+       const [feedbacklogin, setFeedbacklogin] = useState({ empty: true });
+
+       function login() {
+        fetch("http://localhost:3001/login", {
+          method: "POST", 
+          headers: {
+          "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ email: emaillogin, password: passwordlogin }),
+        })
+          .then((res) => res.json(), setEmaillogin(""), setPasswordlogin(""))
+          .then(function (datos) {
+          setFeedbacklogin(datos);          
+          setFeedbacklogin(datos)
+          setTimeout(() => {
+          setFeedbacklogin({ empty: true });
+          }, 6000);
+         
+  
+                             
+          })
+    }
+  
     return (
       <>
+    {/* ----------Login---------------- */}
+
       <Modal.Dialog>
-      <Tabs onChange={callback} type="card">
+      <Tabs type="card">
       <TabPane tab="Entrar" key="1">
       <Modal.Body>    
-      <Form.Group controlId="formBasicEmail">
+      <Form.Group controlId="formBasicEmaillogin">
       <Form.Label>Email</Form.Label>
       <Form.Control
         type="email"
         placeholder="Introduce tu email"
-        onChange={(e) => setEmail(e.target.value)}
-        value={email}               
+        onChange={(e) => setEmaillogin(e.target.value)}
+        value={emaillogin}               
       />
       </Form.Group>
-      <Form.Group controlId="formBasicPassword">
+      <Form.Group controlId="formBasicPasswordlogin">
       <Form.Label>Contraseña</Form.Label>
       <Form.Control
         type="password"
         placeholder="Contraseña"
-        onChange={(e) => setPassword(e.target.value)}
-        value={password}
+        onChange={(e) => setPasswordlogin(e.target.value)}
+        value={passwordlogin}
          />
       </Form.Group>              
      </Modal.Body>
      <Modal.Footer>
      <Form.Group>
-       {feedback.empty ? (
+       {feedbacklogin.empty ? (
            <h1> </h1>
        ) : (
-         <Alert variant={feedback.logged ? "danger " : "success"}>
-           {feedback.mensaje}
+         <Alert variant={feedbacklogin.logged ? "success" : "danger "}>
+           {feedbacklogin.mensaje}
          </Alert>
        )}
      </Form.Group>
      <Button variant="primary" 
-     onClick={() => registrar()}>
+     onClick={() => login()}>
         Entrar
-     </Button>    
-           
+     </Button>               
     </Modal.Footer>
+
+
+    {/* ----------Registros---------------- */}
+
+
       
     </TabPane>
     <TabPane tab="Regístrate" key="2">
