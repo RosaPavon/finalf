@@ -12,11 +12,14 @@ export const AuthContext = createContext();
 
 export default function AuthProvider(props) {
   const { children } = props;//children es toda la web
-  const [user, setUser] = useState({
+
+  const [user, setUser] = useState({    
     user: null,
     isLoading: true
   });
 
+
+  
   useEffect(() => {
     checkUserLogin(setUser);
   }, []);

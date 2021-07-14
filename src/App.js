@@ -7,9 +7,10 @@ import AuthProvider from "./providers/AuthProvider";
 
 function App() {
 
+  
   return (
     <>
-    <AuthProvider>
+    <AuthProvider >
     <BrowserRouter>
     <Switch>
       {/* Este es el bucle que nos va a renderizar todas las rutas que acabemos creando */}

@@ -2,7 +2,8 @@ import { Form, Button, Alert} from "react-bootstrap";
 import { useState} from "react";
 import { Modal} from "react-bootstrap"
 import { Tabs } from 'antd';
-import {ACCESS_TOKEN, REFRESH_TOKEN} from '../../utils/constans'
+import {ACCESS_TOKEN, REFRESH_TOKEN, EMAILTOKEN} from '../../utils/constans'
+
 
 
 
@@ -47,6 +48,7 @@ function Registro() {
        const [passwordlogin, setPasswordlogin] = useState("");
        const [feedbacklogin, setFeedbacklogin] = useState({ empty: true });
 
+
        function login() {
         fetch("http://localhost:3001/login/login", {
           method: "POST", 
@@ -61,20 +63,21 @@ function Registro() {
           setFeedbacklogin(datos)
           console.log(datos)
           if(datos.logged){
-            const { accessToken, refreshToken } = datos;
+            const { accessToken, refreshToken, emailToken } = datos;
+            localStorage.setItem(EMAILTOKEN, emailToken)
             localStorage.setItem(ACCESS_TOKEN, accessToken);
-            localStorage.setItem(REFRESH_TOKEN, refreshToken);
+            localStorage.setItem(REFRESH_TOKEN, refreshToken)
+            console.log(datos)
+            ;
             /* setTimeout(() => {
             setFeedbacklogin({ empty: true });
             }, 6000); */
             window.location.href = "/logged";
           }
-         
-         
-  
-                             
+                  
           })
     }
+
   
     return (
       <>
