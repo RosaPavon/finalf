@@ -21,20 +21,22 @@ function ModificarCliente(){
         .then((datos)=>setName(datos.contenido))
         },[email]) 
       
-   let nombreUsuario = name.map((user, index) => {      
+/*    let nombreUsuario = name.map((user, index) => {      
             return (                             
-              <li className="list-group-item" key={user.id}>
+              <li className="list-group-item" key={user._id}>
               <span className="lead">{user.usuario}</span>    
               <span className="lead">---------------------{user.email}</span>    
 
             </li>              
-            )}); 
+            )});  */
 
     //----------------Editar Usuario-----------------
     
       const [nombre, setNombre] = useState("");
-      //const [usuarioemail, setUsuarioemail] = useState("");
+      const [newEmail, setNewEmail] = useState("");
       const [feedback, setFeedback] = useState({ empty: true });
+      const [emailFeedback, setEmailFeedback] = useState({ empty: true });
+
   
       function enviarNewInf() {
           fetch("http://localhost:3001/usuarios/editar", {
@@ -53,12 +55,30 @@ function ModificarCliente(){
               window.location.href = "/logged"    
               });        
         }
+
+        function enviarNewEml() {
+          fetch("http://localhost:3001/usuarios/emailedit", {
+            method: "PUT",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ newemail: newEmail, email:email}),
+          })
+            .then((res) => res.json())
+            .then(function (datos) {
+              setEmailFeedback(datos)
+              setTimeout(() => {
+              setEmailFeedback({ empty: true });
+              }, 6000);   
+              window.location.href = "/logged"    
+              });        
+        }
       
 
   return(
       <>
          
-       <h3 className="text-lg font-medium leading-6 text-gray-900"  >{nombreUsuario}</h3>
+       {/* <h3 className="text-lg font-medium leading-6 text-gray-900"  >{nombreUsuario}</h3> */}
         <div className="mt-5 md:mt-0 md:col-span-2">
       <div action="#" method="POST">
         <div className="shadow sm:rounded-md sm:overflow-hidden">            
@@ -95,10 +115,28 @@ function ModificarCliente(){
        <input type="text" readOnly className="form-control-plaintext" id="staticEmail2" value="Cambia tu Email"/>
        </div>
        <div className="col-auto">
-       <input type="text" className="form-control" id="inputEmail" placeholder="Escribe tu nuevo Email"/>
+       <div className="col-auto">
+            <Form.Control
+              type="text"
+              placeholder="Escribe tu nuevo Email"
+              onChange={(e) => setNewEmail(e.target.value)}
+              value={newEmail} />
+          
+       </div>
        </div>
        <div className="col-auto">
-       <button type="submit" className="btn btn-primary mb-3">Modificar</button>
+       <button type="submit" className="btn btn-warning btn-block"
+       onClick={() => enviarNewEml()}
+       >Modificar</button>
+       <Form.Group>
+       {emailFeedback.empty ? (
+           <h1> </h1>
+       ) : (
+         <Alert variant={emailFeedback.error ? "danger " : "success"}>
+           {emailFeedback.mensaje}
+         </Alert>
+       )}
+     </Form.Group>
        </div>
        </div>
           <div>
