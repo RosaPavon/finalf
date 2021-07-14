@@ -2,6 +2,7 @@
 import {ACCESS_TOKEN, REFRESH_TOKEN } from '../utils/constans'
 import jwtDecode from 'jwt-decode'
 
+
 export function getAccessToken(){
     const accessToken = localStorage.getItem(ACCESS_TOKEN)
     if(!accessToken || accessToken === "null"){
@@ -35,3 +36,4 @@ export function logout(){
     localStorage.removeItem(REFRESH_TOKEN)
 
 }
+

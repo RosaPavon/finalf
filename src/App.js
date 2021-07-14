@@ -1,23 +1,15 @@
 import "./App.css";
-import "./App.scss";
 import React from "react"
 import {BrowserRouter, Route, Switch} from 'react-router-dom'
 import routes from './config/routes'
-
-/* import Login from './Login'
-import Registro from './Registro'
-import AreaCliente from './AreaCliente'
-import Cabecera from './Cabecera' */
+import AuthProvider from "./providers/AuthProvider";
 
 
 function App() {
 
-  //const [usuario, setUsuario] = useState ({})//aqui tenemos guardado el usuario que hemos recibido
-/*   const [usuarioEmail, setUsuarioEmail] = useState("")//aqui tenemos el email cuando se logen */
-
-
   return (
     <>
+    <AuthProvider>
     <BrowserRouter>
     <Switch>
       {/* Este es el bucle que nos va a renderizar todas las rutas que acabemos creando */}
@@ -27,6 +19,7 @@ function App() {
       ))}
     </Switch>
     </BrowserRouter> 
+    </AuthProvider>
     </>
   )
 }

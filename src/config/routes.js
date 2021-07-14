@@ -17,8 +17,6 @@ import Contact from "../pages/Contact"
 import Error404 from "../pages/Error404"
 
 
-
-
 const routes = [
     {
         path:"/logged",
