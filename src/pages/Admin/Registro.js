@@ -15,6 +15,7 @@ function Registro() {
     const [password, setPassword] = useState("");
     const [reppassword, setrepPassword] = useState("");
     const [feedback, setFeedback] = useState({ empty: true });
+    const imagen="https://image.flaticon.com/icons/png/512/33/33771.png"
 
     const { TabPane } = Tabs;
 
@@ -24,7 +25,7 @@ function Registro() {
           headers: {
             "Content-Type": "application/json",
           },
-          body: JSON.stringify({ usuario: usuario, email: email.toLocaleLowerCase(), password: password , reppassword:reppassword}),
+          body: JSON.stringify({ usuario: usuario, email: email.toLocaleLowerCase(), password: password , reppassword:reppassword, imagen:imagen}),
         })
           .then((res) => res.json())
           .then(function (datos) {

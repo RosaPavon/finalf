@@ -3,8 +3,10 @@ import React from "react"
 import { Tabs } from 'antd';
 import {Container} from "react-bootstrap"
 import ModificarCliente from "../../components/Admin/AreaCliente/ModificarCliente"
+import NuevaReceta from "../../components/Admin/AreaCliente/NuevaReceta" 
+import MisRecetas from "../../components/Admin/AreaCliente/MisRecetas" 
+import RecetasGuardadas from "../../components/Admin/AreaCliente/RecetasGuardadas" 
 
- 
   
 function Admin(){ 
 
@@ -20,13 +22,13 @@ function Admin(){
           <ModificarCliente/>
           </TabPane>
           <TabPane tab="Mis Recetas" key="2">
-            Content of Tab 2
+            <MisRecetas/>
           </TabPane>
           <TabPane tab="Nueva receta" key="3">
-            Content of Tab 3
+            <NuevaReceta/>
           </TabPane>
           <TabPane tab="Recetas guardadas" key="4">
-            Content of Tab 4
+            <RecetasGuardadas/>
           </TabPane>
         </Tabs> 
       
