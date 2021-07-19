@@ -73,7 +73,7 @@ function Registro() {
             /* setTimeout(() => {
             setFeedbacklogin({ empty: true });
             }, 6000); */
-            window.location.href = "/logged";
+            window.location.href = "/logged/home";
           }
                   
           })

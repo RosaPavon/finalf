@@ -24,7 +24,9 @@ function Cabecera(){
 
     const logoutUser=()=>{
         logout()
-        window.location.reload()
+        window.location.href = "/";
+
+        
     }
     let imagenUsuario=name.map((user, index) => {      
         return (                             
@@ -36,11 +38,11 @@ function Cabecera(){
     return(
         <>
         <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
-        <Navbar.Brand href="/">Cook And Cook</Navbar.Brand>
+        <Navbar.Brand href="/logged/home">Cook And Cook</Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
         <Nav className="mr-auto">
-        <Nav.Link href="/">Home</Nav.Link>
+        <Nav.Link href="/logged/home">Home</Nav.Link>
         <NavDropdown title="Recetas" id="collasible-nav-dropdown">
         <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
         <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>
@@ -51,7 +53,7 @@ function Cabecera(){
     <Nav>
     <h3 className="text-lg font-medium leading-6 text-gray-900"  >{imagenUsuario}</h3> 
 
-      <Nav.Link href="/logged">Area Cliente</Nav.Link>
+      <Nav.Link href="/logged/user">Area Cliente</Nav.Link>
 
       <Nav.Link onClick={logoutUser}>Cerrar Sesión</Nav.Link>
 

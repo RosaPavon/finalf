@@ -64,6 +64,7 @@ function NuevaReceta(){
         },
         body: JSON.stringify({  
           name:name[0].usuario,
+          email:email, 
           categoria: value, 
           dificult: dificult , 
           titulo:titulo, 
@@ -84,6 +85,7 @@ function NuevaReceta(){
           setIngredientes("")
           setReceta("")
           setFoto("")
+          window.location.reload()
         });      
     }
   
@@ -131,15 +133,16 @@ function NuevaReceta(){
   </Form.Group>
   <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1"  >
   <h5>Ingredientes</h5>
-  <Form.Control as="textarea" rows={3}  onChange={(e) => setIngredientes(e.target.value)}
+  <Form.Control as="textarea" rows={3}  onChange={(e) => setIngredientes(e.target.value)}placeholder={`ejemplo:\n-100g harina \n-2 claras de huevo \n-150g de carne`}
     value={ingredientes} />
   </Form.Group>
   <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea2">
   <h5>Paso a paso</h5>
   <Form.Control as="textarea" rows={6}  onChange={(e) => setReceta(e.target.value)}
+  placeholder={`ejemplo:\nPaso 1->prepara los ingredientes \nPaso 2-> precalienta el horno a 180º\nPaso 3->Corta la cebolla y los ajos\nPaso 4->pon el agua a hervir\nPaso 5->añade sal y aceite al agua`}
     value={receta} />
   </Form.Group>
-  <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+  <Form.Group className="mb-3" controlId="exampleForm.ControlInput3">
   <h5>Pon una imagen</h5>
   <Form.Control type="text" placeholder="www.ejemploimagen.es"  onChange={(e) => setFoto(e.target.value)}
     value={foto}/>

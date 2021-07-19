@@ -35,6 +35,7 @@ export function logout(){
     localStorage.removeItem(EMAILTOKEN)
     localStorage.removeItem(ACCESS_TOKEN)
     localStorage.removeItem(REFRESH_TOKEN)
+    
 
 }
 

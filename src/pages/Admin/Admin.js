@@ -14,7 +14,7 @@ function Admin(){
 
     return(
         <>
-        <h2>Estamos en Admin</h2> 
+        <h5>Área de cliente </h5> 
         <Container>
         
          <Tabs tabPosition={"left"}>
