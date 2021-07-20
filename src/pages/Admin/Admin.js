@@ -14,6 +14,7 @@ function Admin(){
 
     return(
         <>
+        <div id="home">
         <h5>Área de cliente </h5> 
         <Container>
         
@@ -32,7 +33,8 @@ function Admin(){
           </TabPane>
         </Tabs> 
       
-        </Container>   
+        </Container>  
+        </div> 
         </>
         )
 }

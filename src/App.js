@@ -12,7 +12,7 @@ import Cabecera from "./components/Admin/Cabecera/Cabecera";
 import Home from "./pages/Home";
 
 
-function App() {
+function App () {
 
   const accessToken = getAccessToken();
 

@@ -42,3 +42,22 @@
   justify-content: space-between;
   flex-wrap: wrap;
 }
+
+#home{
+
+   
+    background: url(images/fondoweb.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    margin: 0;
+    height: 500vh;  
+}
+#portada{
+margin:auto
+}
+
+#navbar{
+  background-image: url(images/fondoweb.png) ;
+  background-size: cover;
+ }
+

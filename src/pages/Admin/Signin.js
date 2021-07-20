@@ -11,8 +11,10 @@ if(getAccessToken()){
 }
     return(
         <>
+        <div id="home">
         <h2>Estamos en Singnin</h2>
         <Registro />
+        </div>
         </>
     )
 }

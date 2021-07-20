@@ -1,6 +1,8 @@
 import React from "react"
-import {Nav, Navbar, NavDropdown} from "react-bootstrap"
+import {Nav, Navbar, NavDropdown, Image} from "react-bootstrap"
 import {logout} from "../../../api/auth"
+import logo from "../../../images/logo.png"
+
 import { useState, useEffect} from "react";
 import { Avatar } from 'antd';
 
@@ -37,8 +39,9 @@ function Cabecera(){
 
     return(
         <>
-        <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
-        <Navbar.Brand href="/logged/home">Cook And Cook</Navbar.Brand>
+        <Navbar collapseOnSelect expand="lg" variant="dark" id="navbar">
+        <Image href="/logged/home" src={logo} fluid   width="95" height="104"/>
+        {/* <Navbar.Brand href="/logged/home">Cook And Cook</Navbar.Brand> */}
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
         <Nav className="mr-auto">

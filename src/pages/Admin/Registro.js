@@ -83,8 +83,8 @@ function Registro() {
     return (
       <>
     {/* ----------Login---------------- */}
-
-      <Modal.Dialog>
+   <div id="home">
+      <Modal.Dialog >
       <Tabs type="card">
       <TabPane tab="Entrar" key="1">
       <Modal.Body>    
@@ -187,6 +187,7 @@ function Registro() {
     </TabPane>    
     </Tabs>     
     </Modal.Dialog>
+    </div>
       </>
     
     );

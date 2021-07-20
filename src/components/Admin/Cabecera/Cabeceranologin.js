@@ -5,7 +5,7 @@ import {Nav, Navbar, NavDropdown} from "react-bootstrap"
 function Cabeceranologin(){
     return(
         <>
-        <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
+        <Navbar collapseOnSelect expand="lg" id="navbar" variant="dark">
         <Navbar.Brand href="/logged/login">Cook And Cook</Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
