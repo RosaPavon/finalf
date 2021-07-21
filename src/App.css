@@ -44,13 +44,20 @@
 }
 
 #home{
-
-   
     background: url(images/fondoweb.png);
     background-size: cover;
     background-repeat: no-repeat;
     margin: 0;
     height: 500vh;  
+    
+}
+#homehome{
+  background: url(images/fondowebportada.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  margin: 0;
+  height: 500vh;  
+  
 }
 #portada{
 margin:auto
@@ -61,3 +68,34 @@ margin:auto
   background-size: cover;
  }
 
+#secciones{
+  display:block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media handheld, only screen and (max-width: 767px) {
+  #especias {
+  display:none;
+  }
+  }
+#centrado{
+  text-align: center;
+}
+
+#izquierda {
+  float: left;
+}
+
+#derecha {
+  float: right;
+}
+#blanco{
+  color:white
+}
+
+.catalogo {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}

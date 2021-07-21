@@ -107,7 +107,6 @@ function NuevaReceta(){
       <Radio value={"Arroz"}>Arroz </Radio>
            
       <Radio value={"Carnes y estofados"}>Carnes y estofados</Radio>
-      <Radio value={"Guisos"}>Guisos</Radio>
       <Radio value={"Pasta y Pizzas"}>Pasta y Pizzas</Radio>
      
       <Radio value={"Verduras y Legumbres"}>Verduras y Legumbres</Radio>
