@@ -99,3 +99,7 @@ margin:auto
   justify-content: space-between;
   flex-wrap: wrap;
 }
+
+#card{
+  background-color: #282c34;
+}

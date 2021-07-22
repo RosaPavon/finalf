@@ -2,7 +2,7 @@ import {Link} from 'react-router-dom'
 import { Card} from 'antd';
 
 
-function Receta(props){
+function Recetas(props){
     
     return(
         <>
@@ -18,8 +18,8 @@ function Receta(props){
             }
            >
             <h6>{props.titulo}</h6>
-            <Link to={`/logged/home/${props.titulo}`}>Ver Receta</Link>
-      
+            <Link to={`/logged/home/arroz/${props.titulo}`}>Ver Receta</Link> 
+           
        </Card>
         </div>
         
@@ -27,11 +27,11 @@ function Receta(props){
     )
 }
 
-function Recetas(props){
+function Receta(props){
     return props.recetario.slice(0).reverse().map((receta, index) => {
-        if (index <= 11) { 
+        if (index <= 23) { 
         return(
-            <Receta
+            <Recetas
             key={index}
             imagen={receta.foto}
             titulo={receta.titulo}
@@ -46,4 +46,4 @@ function Recetas(props){
     })
 }
 
-export default Recetas;
+export default Receta;

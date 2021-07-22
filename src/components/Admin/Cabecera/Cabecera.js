@@ -47,9 +47,17 @@ function Cabecera(){
         <Nav className="mr-auto">
         <Nav.Link href="/logged/home">Home</Nav.Link>
         <NavDropdown title="Recetas" id="collasible-nav-dropdown">
-        <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
-        <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>
-        <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
+        <NavDropdown.Item href="/logged/home/acompañamiento">Acompañamiento</NavDropdown.Item>
+        <NavDropdown.Item href="/logged/home/arroz">Arroz</NavDropdown.Item>
+        <NavDropdown.Item href="/logged/home/entrantes">Entrantes</NavDropdown.Item>
+        <NavDropdown.Item href="/logged/home/carnes">Carnes y estofados</NavDropdown.Item>
+        <NavDropdown.Item href="/logged/home/pasta">Pasta y pizzas</NavDropdown.Item>
+        <NavDropdown.Item href="/logged/home/pescado">Pescado y marisco</NavDropdown.Item>
+        <NavDropdown.Item href="/logged/home/postres">Postres y helados</NavDropdown.Item>
+        <NavDropdown.Item href="/logged/home/verduras">Verduras y legumbre</NavDropdown.Item>
+
+
+
     </NavDropdown>
 
     </Nav>

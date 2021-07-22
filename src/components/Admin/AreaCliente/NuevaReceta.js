@@ -70,7 +70,8 @@ function NuevaReceta(){
           titulo:titulo, 
           ingredientes:ingredientes,
           receta:receta,
-          foto:foto          
+          foto:foto,
+          like:0           
         }),
       })
         .then((res) => res.json())

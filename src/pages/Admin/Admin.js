@@ -6,6 +6,8 @@ import ModificarCliente from "../../components/Admin/AreaCliente/ModificarClient
 import NuevaReceta from "../../components/Admin/AreaCliente/NuevaReceta" 
 import MisRecetas from "../../components/Admin/AreaCliente/MisRecetas" 
 import RecetasGuardadas from "../../components/Admin/AreaCliente/RecetasGuardadas" 
+import Comentarios from "../../components/Admin/AreaCliente/Comentarios" 
+
 
   
 function Admin(){ 
@@ -30,6 +32,9 @@ function Admin(){
           </TabPane>
           <TabPane tab="Recetas guardadas" key="4">
             <RecetasGuardadas/>
+          </TabPane>
+          <TabPane tab="Comentarios" key="5">
+            <Comentarios/>
           </TabPane>
         </Tabs> 
       
