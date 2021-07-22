@@ -1,6 +1,7 @@
 import React from "react"
 import { Avatar} from 'antd';
 import { useState, useEffect} from "react";
+import { Card} from 'antd';
 
 
 function RecetasGuardadas(){
@@ -8,10 +9,8 @@ function RecetasGuardadas(){
 
     //------------Mostrar Nombre Cliente--------------
   const [name, setName]=useState([]) 
- 
-
-
-    useEffect(()=>{    
+  
+  useEffect(()=>{    
      fetch("http://localhost:3001/usuarios/misdatos", {
           method: "POST",
           headers: {
@@ -32,50 +31,109 @@ function RecetasGuardadas(){
             </li>              
             )}); 
 
-            
-
-  return(
-      <>
-         
-       <h3 className="text-lg font-medium leading-6 text-gray-900"  >{nombreUsuario}</h3> 
-        <div className="mt-5 md:mt-0 md:col-span-2">
-      <div action="#" method="POST"></div>
-        <div className="shadow sm:rounded-md sm:overflow-hidden">            
-        <div className="px-4 py-5 bg-white space-y-6 sm:p-6">
-        <div className="row g-3">              
-       <div className="col-auto">
-       </div>
-       
-       <div className="col-auto">       
-       
-       </div>
-       </div>
-       <br></br>
-
-       <div className="row g-3">
-       <div className="col-auto">
-       </div>  
+ //-----------------Mostrar Recetas guardadas------------    
  
+ const [guardada, setGuardada]=useState([])
+ const [masinfo, setMasinfo] = useState(false)
+
+
+
+ const ampliar = user => {  
+  setMasinfo(!masinfo)
+   }
+
+
+useEffect(()=>{    
+  fetch("http://localhost:3001/admin/recetasguardadas", {
+       method: "POST",
+       headers: {
+         "Content-Type": "application/json",
+       },
+       body: JSON.stringify({ email:email}),
+     })
+     .then(res => res.json())
+     .then((datos)=>setGuardada(datos.contenido))
+     },[email]) 
    
-       <div className="col-auto">
+let recetaGuardadas = guardada.map((user, index) => {      
+         return (
+           <>    
+                       
+          <Card 
+          style={{ width: 840}}       
+         >
+           <Avatar size={114} src={user.foto} /> 
+          <span className="lead">{user.titulo}</span>
+          <button type="button" className="btn btn-outline-warning float-right" onClick={() => ampliar(user) }>Más info</button>
 
-       </div>
-       </div>
-          <div>
-            <br></br>
-            <div className="mt-1 flex items-center">
-              <span className="inline-block h-12 w-12 rounded-full overflow-hidden bg-gray-100">
-              </span>
-            </div>
-          </div>         
-        </div>          
-      </div>
+          <br></br>
+          {
+              masinfo ? (
+                <>
+                <div className="mb-3">
+                <br></br>    
+                <span className="lead">{user.ingredientes}</span>
+                <br></br>
+                <span className="lead">{user.receta}</span>                       
+                </div>
+                </>
+              ) : (
+                <p> </p>
+              )
+            }
+         
+
     
-  </div>
+     </Card>  
+   
+     </>                       
+         )});  
 
 
-  </>
-  )
+return(
+    <>
+       
+     <h3 className="text-lg font-medium leading-6 text-gray-900"  >{nombreUsuario}</h3> 
+      <div className="mt-5 md:mt-0 md:col-span-2">
+    <div action="#" method="POST"></div>
+      <div className="shadow sm:rounded-md sm:overflow-hidden">            
+      <div className="px-4 py-5 bg-white space-y-6 sm:p-6">
+      <div className="row g-3">              
+     <div className="col-auto">
+     </div>
+     
+        
+     <div className="catalogo">  
+     <h3 className="text-lg font-medium leading-6 text-gray-900">{recetaGuardadas}</h3>
+     
+     </div>
+     </div>
+     <br></br>
+
+     <div className="row g-3">
+     <div className="col-auto">
+     </div>  
+
+ 
+     <div className="col-auto">
+
+     </div>
+     </div>
+        <div>
+          <br></br>
+          <div className="mt-1 flex items-center">
+            <span className="inline-block h-12 w-12 rounded-full overflow-hidden bg-gray-100">
+            </span>
+          </div>
+        </div>         
+      </div>          
+    </div>
+  
+</div>
+
+
+</>
+)
 }
 
 export default RecetasGuardadas

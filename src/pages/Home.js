@@ -125,7 +125,7 @@ const guardar = (props) => {
       setFeedbackGuardar({ empty: true });
       }, 6000); 
   
-    })},[recetaGuardada, email]) 
+    })},[recetaGuardada]) 
 
 
  
@@ -139,8 +139,10 @@ const guardar = (props) => {
        })
        .then(res => res.json())
        .then((datos)=>setRecetario(datos.contenido))
-       },[])       
-      let rutas = recetario.map((cook, index)=>{        
+       },[])     
+       
+       
+let rutas = recetario.map((cook, index)=>{        
         return(
           <Route path={"/logged/home/" + cook.titulo}>
           <div key={index}>  
@@ -169,7 +171,6 @@ const guardar = (props) => {
             <p>{cook.receta}</p>
             <Link to="/logged/home" onClick={() => setTitulo("")}>+ recetas</Link>
             <div className="btn-group float-right" role="group" aria-label="Basic outlined example ">
-              <button type="button" className="btn btn-outline-warning float-right">♥</button>
               <button type="button" className="btn btn-outline-warning float-right" onClick={() => guardar(cook) }>Guardar</button>
               <button type="button" className="btn btn-outline-warning float-right" onClick={() => comentar(cook) }>Comentar</button>
             </div>
@@ -219,8 +220,6 @@ const guardar = (props) => {
         )
       })
 
-  
-  
   
   
 
@@ -302,29 +301,17 @@ const guardar = (props) => {
       
 <br></br>
 <br></br>
-
 <br></br>
-
 <br></br>
-
 <br></br>
-
 <br></br>
-
-<br></br>
-
 <br></br>
 <br></br>
 
-<br></br>
-
-<br></br>
-
-<br></br>
 
 
-
-   </div>       
+   </div> 
+         
   </BrowserRouter>
       
         </>

@@ -9,8 +9,8 @@ function Comentarios(){
     //------------Mostrar Nombre Cliente--------------
   const [name, setName]=useState([]) 
 
-  //--------------Mostrar comentarios--------------
-  const [coment, setComent]=useState([])
+  //--------------Mostrar usuario--------------
+  
 
     useEffect(()=>{    
      fetch("http://localhost:3001/usuarios/misdatos", {
@@ -35,6 +35,10 @@ function Comentarios(){
 
 
  //--------------Mostrar comentarios---------
+
+ const [coment, setComent]=useState([])
+
+ 
 useEffect(()=>{    
     fetch("http://localhost:3001/comentarios/comentariosUsers", {
          method: "POST",
@@ -47,13 +51,12 @@ useEffect(()=>{
        .then((datos)=>setComent(datos.contenido))
        },[email]) 
 
-       console.log(coment) 
      
  let comentarios = coment.map((user, index) => {      
            return (
              <ul>
-                 <h6>{user.titulo}</h6>              
-             <li className="list-group-item" key={user.index}>
+             <h6>{user.titulo}</h6>              
+             <li className="list-group-item" key={user.id}>
              <Avatar size={14} src={user.imagenComentario} />      
              <span className="lead">{user.usuarioComentario}</span>
              <p>{user.comentario}</p>
@@ -107,20 +110,5 @@ useEffect(()=>{
   )
 }
 
-/*     var email = localStorage.getItem("emailToken")
- const [comentarioUsuario, setComentarioUsuario]=useState([])
-console.log(props.name.usuario) */
-
-
- 
-  /* return( */
-     /*  <> */
-{/*  <h3 className="text-lg font-medium leading-6 text-gray-900"  >{comentarios}</h3> */}  
-
-
-
-{/*   </>
-  )
-} */}
 
 export default Comentarios

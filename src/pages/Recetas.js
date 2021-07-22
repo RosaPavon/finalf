@@ -29,7 +29,7 @@ function Receta(props){
 
 function Recetas(props){
     return props.recetario.slice(0).reverse().map((receta, index) => {
-        if (index <= 11) { 
+        
         return(
             <Receta
             key={index}
@@ -42,7 +42,7 @@ function Recetas(props){
             dificultad={receta.dificultad}
             index={index}
             />
-        )}
+        )
     })
 }
 

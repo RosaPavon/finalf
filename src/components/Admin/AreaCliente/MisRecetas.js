@@ -103,7 +103,7 @@ function MisRecetas(){
             </li>              
             )}); 
 
-//Mostrar las recetas------------
+//----------Mostrar las recetas------------
 
 useEffect(()=>{    
      fetch("http://localhost:3001/crearreceta/misrecetas", {
