@@ -1,20 +1,24 @@
 import React from "react"
-import {Nav, Navbar, NavDropdown} from "react-bootstrap"
+import {Nav, Navbar,Image} from "react-bootstrap"
+import logo from "../../../images/logo.png"
+import {Link} from 'react-router-dom'
+
+
+
 
 
 function Cabeceranologin(){
     return(
         <>
         <Navbar collapseOnSelect expand="lg" id="navbar" variant="dark">
-        <Navbar.Brand href="/logged/login">Cook And Cook</Navbar.Brand>
+        <Link to={`/`}>
+        <Image src={logo} fluid   width="95" height="104"/>
+
+      </Link> 
+       
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
-        <Nav className="mr-auto">
-        <NavDropdown title="Recetas" id="collasible-nav-dropdown">
-        <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
-        <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>
-        <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
-    </NavDropdown>
+        <Nav className="mr-auto"> 
     
     </Nav>
     <Nav>

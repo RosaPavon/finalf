@@ -7,15 +7,12 @@ function Singnin(){
 
 if(getAccessToken()){
     return <Redirect to="/logged/"/>
-
 }
     return(
-        <>
-        <div id="home">
-        <h2>Estamos en Singnin</h2>
-        <Registro />
+        <div id="homelogin">      
+        <Registro />    
         </div>
-        </>
+       
     )
 }
 

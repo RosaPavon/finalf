@@ -18,7 +18,10 @@ function Receta(props){
             }
            >
             <h6>{props.titulo}</h6>
-            <Link to={`/logged/home/${props.titulo}`}>Ver Receta</Link>
+            <Link id="color"  to={`/logged/home/${props.titulo}`}>▸Receta </Link>
+            <Link id="blanco">   ▸  </Link>
+            <Link id="color"  to={`/logged/home/${props.categoria}`}>   ▸Categoria</Link>
+
       
        </Card>
         </div>
@@ -36,7 +39,7 @@ function Recetas(props){
             imagen={receta.foto}
             titulo={receta.titulo}
             usuario={receta.usuario}
-            categoria={receta.categori}
+            categoria={receta.categoria}
             ingredientes={receta.ingredientes}
             receta={receta}
             dificultad={receta.dificultad}

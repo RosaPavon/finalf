@@ -47,9 +47,12 @@
     background: url(images/fondoweb.png);
     background-repeat: repeat-y;
     margin: 0;
-   
-    
+     
 }
+#homelogin{
+  background: url(images/fondoweblogin.png);
+  margin: 0;
+   }
 #homehome{
   background: url(images/fondowebportada.png);
   background-repeat: repeat-y;
@@ -89,6 +92,30 @@ margin:auto
 }
 #blanco{
   color:white
+}
+#blancocategoria{
+  color:white;
+  font-size: large;
+  font-weight: bold;
+}
+#color{
+  color:hsl(24, 78%, 52%);
+  font-size: large;
+}
+.colortext{
+  color:rgb(187, 187, 187);
+  background-color:#282c34;
+}
+.backtext{
+ background-color:rgb(223, 223, 223);
+}
+.juajua{
+  color:red
+}
+
+#grey{
+  color:white;
+  background-color:#282c34;
 }
 
 .catalogo {

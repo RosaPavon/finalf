@@ -2,7 +2,7 @@ import {Link} from 'react-router-dom'
 import { Card} from 'antd';
 
 
-function Recetas(props){
+function Receta(props){
     
     return(
         <>
@@ -18,8 +18,11 @@ function Recetas(props){
             }
            >
             <h6>{props.titulo}</h6>
-            <Link to={`/logged/home/arroz/${props.titulo}`}>Ver Receta</Link> 
-           
+            <Link id="color"  to={`/${props.titulo}`}>▸Receta </Link>
+            <Link id="blanco">   ▸  </Link>
+            <Link id="color"  to={`/${props.categoria}`}>   ▸Categoria</Link>
+
+      
        </Card>
         </div>
         
@@ -27,23 +30,23 @@ function Recetas(props){
     )
 }
 
-function Receta(props){
+function Recetasnolog(props){
     return props.recetario.slice(0).reverse().map((receta, index) => {
-        if (index <= 23) { 
+        
         return(
-            <Recetas
+            <Receta
             key={index}
             imagen={receta.foto}
             titulo={receta.titulo}
             usuario={receta.usuario}
-            categoria={receta.categori}
+            categoria={receta.categoria}
             ingredientes={receta.ingredientes}
             receta={receta}
             dificultad={receta.dificultad}
             index={index}
             />
-        )}
+        )
     })
 }
 
-export default Receta;
+export default Recetasnolog;

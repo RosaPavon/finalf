@@ -83,14 +83,16 @@ function Registro() {
     return (
       <>
     {/* ----------Login---------------- */}
-   <div id="home">
+   <div>
+   <br></br>
+        <br></br>
       <Modal.Dialog >
-      <Tabs type="card">
-      <TabPane tab="Entrar" key="1">
-      <Modal.Body>    
-      <Form.Group controlId="formBasicEmaillogin">
+      <Tabs type="card" className="colortext" >
+      <TabPane tab="Entrar" key="1" >
+      <Modal.Body >    
+      <Form.Group controlId="formBasicEmaillogin"  >
       <Form.Label>Email</Form.Label>
-      <Form.Control
+      <Form.Control  
         type="email"
         placeholder="Introduce tu email"
         onChange={(e) => setEmaillogin(e.target.value)}
@@ -99,7 +101,7 @@ function Registro() {
       </Form.Group>
       <Form.Group controlId="formBasicPasswordlogin">
       <Form.Label>Contraseña</Form.Label>
-      <Form.Control
+      <Form.Control 
         type="password"
         placeholder="Contraseña"
         onChange={(e) => setPasswordlogin(e.target.value)}
@@ -116,12 +118,9 @@ function Registro() {
            {feedbacklogin.mensaje}
          </Alert>
        )}
-     </Form.Group>
-     <Button variant="primary" 
-     onClick={() => login()}>
-        Entrar
-     </Button>               
-    </Modal.Footer>
+     </Form.Group>      
+     <button type="button" className="btn btn-outline-warning float-right" onClick={() => login()}>Entrar</button>
+     </Modal.Footer>
 
 
     {/* ----------Registros---------------- */}
@@ -178,16 +177,19 @@ function Registro() {
          </Alert>
        )}
      </Form.Group>
-     <Button variant="primary" 
-     onClick={() => registrar()}>
-        Enviar
-     </Button>    
-           
+     <button type="button" className="btn btn-outline-warning float-right" onClick={() => registrar()}>Enviar</button> 
     </Modal.Footer>
     </TabPane>    
     </Tabs>     
     </Modal.Dialog>
     </div>
+    <br></br>
+        <br></br>  <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+      
+
       </>
     
     );

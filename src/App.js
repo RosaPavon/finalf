@@ -11,14 +11,7 @@ import Admin from "./pages/Admin/Admin";
 import Cabecera from "./components/Admin/Cabecera/Cabecera";
 import Footer from "./components/Admin/Footer"
 import Home from "./pages/Home";
-import Acompañamiento from "./components/Admin/Paginas/Acompañamiento"
-import Arroz from "./components/Admin/Paginas/Arroz"
-/* import Carnes from "./components/Admin/Paginas/Carnes"
-import Entrantes from "./components/Admin/Paginas/Entrantes"
-import Pasta from "./components/Admin/Paginas/Pasta"
-import Pescado from "./components/Admin/Paginas/Pescado"
-import Postres from "./components/Admin/Paginas/Postres"
-import Verduras from "./components/Admin/Paginas/Verduras" */
+
 
 
 
@@ -77,9 +70,6 @@ const [name, setName]=useState({})
       <Route exact path="/">
       <Inicio/>
       </Route>
-      <Route exact path="/logged/home/acompañamiento">
-      <Acompañamiento/>
-      </Route>
       <Footer/>
       </BrowserRouter>
       </>
@@ -94,11 +84,8 @@ const [name, setName]=useState({})
       <Admin/>
       </Route>
       <Route exact path="/logged/home">
-      <Home name={name}/>
+      <Home user={user}/>
       </Route> 
-      <Route exact path="/logged/home/arroz">
-      <Arroz/>
-      </Route>
       <Footer/>
       </BrowserRouter>    
     </>

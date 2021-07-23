@@ -1,5 +1,5 @@
 import React from "react"
-import {Nav, Navbar, NavDropdown, Image} from "react-bootstrap"
+import {Nav, Navbar, Image} from "react-bootstrap"
 import {logout} from "../../../api/auth"
 import logo from "../../../images/logo.png"
 
@@ -41,24 +41,11 @@ function Cabecera(){
         <>
         <Navbar collapseOnSelect expand="lg" variant="dark" id="navbar">
         <Image href="/logged/home" src={logo} fluid   width="95" height="104"/>
-        {/* <Navbar.Brand href="/logged/home">Cook And Cook</Navbar.Brand> */}
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
         <Nav className="mr-auto">
         <Nav.Link href="/logged/home">Home</Nav.Link>
-        <NavDropdown title="Recetas" id="collasible-nav-dropdown">
-        <NavDropdown.Item href="/logged/home/acompañamiento">Acompañamiento</NavDropdown.Item>
-        <NavDropdown.Item href="/logged/home/arroz">Arroz</NavDropdown.Item>
-        <NavDropdown.Item href="/logged/home/entrantes">Entrantes</NavDropdown.Item>
-        <NavDropdown.Item href="/logged/home/carnes">Carnes y estofados</NavDropdown.Item>
-        <NavDropdown.Item href="/logged/home/pasta">Pasta y pizzas</NavDropdown.Item>
-        <NavDropdown.Item href="/logged/home/pescado">Pescado y marisco</NavDropdown.Item>
-        <NavDropdown.Item href="/logged/home/postres">Postres y helados</NavDropdown.Item>
-        <NavDropdown.Item href="/logged/home/verduras">Verduras y legumbre</NavDropdown.Item>
 
-
-
-    </NavDropdown>
 
     </Nav>
     <Nav>
