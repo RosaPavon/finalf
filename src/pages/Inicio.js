@@ -14,10 +14,9 @@ import texto from "../images/text.png"
 import recetas from "../images/recetas.png"
 import { useState, useEffect} from "react";
 import {Card,  Avatar, Rate } from 'antd';
-import {Row, Col, Image, Form, Alert} from "react-bootstrap"
+import {Row, Col, Image } from "react-bootstrap"
 import {Link, Route, BrowserRouter} from 'react-router-dom'
 import Recetasnolog from"./Recetasnolog"
-import { Popconfirm, message} from 'antd';
 import { FrownOutlined, MehOutlined, SmileOutlined } from '@ant-design/icons';
 
 

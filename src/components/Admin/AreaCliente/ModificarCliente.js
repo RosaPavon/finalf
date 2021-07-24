@@ -32,10 +32,10 @@ function ModificarCliente(){
       
  let nombreUsuario = name.map((user, index) => {      
             return (                             
-              <li className="list-group-item" key={user._id}>
+              <li className="colortext2" key={user._id}>
               <Avatar size={44} src={user.imagen} />  
               <span className="lead">      {user.usuario}</span>    
-              <span className="lead">---------------------{user.email}</span> 
+              <span className="lead">⋯⋯⋯⋯⋯⋯⋯{user.email}</span> 
             </li>              
             )}); 
 
@@ -46,7 +46,7 @@ function ModificarCliente(){
         <div className="row g-3">              
        <div className="col-auto">
 
-       <input type="text" readOnly className="form-control-plaintext" id="avatar" value="Cambia tu Avatar" />
+       <input type="text" readOnly className="form-control-plaintext" id="blanco" value="Cambia tu Avatar" />
        <Avatar size={114} src={user.imagen} />  
 
        </div>
@@ -147,16 +147,15 @@ function ModificarCliente(){
   }
 
   return(
+
       <>
-         
-       <h3 className="text-lg font-medium leading-6 text-gray-900"  >{nombreUsuario}</h3> 
-        <div className="mt-5 md:mt-0 md:col-span-2">
-      <div action="#" method="POST">
-        <div className="shadow sm:rounded-md sm:overflow-hidden">            
-        <div className="px-4 py-5 bg-white space-y-6 sm:p-6">
+           
+        <div className="px-4 py-5 bg-grey space-y-6 sm:p-6">
+        <h3 className="colortext2" >{nombreUsuario}</h3> 
+<br></br>
         <div className="row g-3">              
        <div className="col-auto">
-       <input type="text" readOnly className="form-control-plaintext" id="usuario" value="Cambia tu Usuario" />
+       <input type="text" readOnly className="form-control-plaintext" id="blanco" value="Cambia tu Usuario" />
        </div>
        <div className="col-auto">
             <Form.Control
@@ -185,7 +184,7 @@ function ModificarCliente(){
 
        <div className="row g-3">
        <div className="col-auto">
-       <input type="text" readOnly className="form-control-plaintext" id="staticEmail2" value="Cambia tu Email"/>
+       <input type="text" readOnly className="form-control-plaintext" id="blanco" value="Cambia tu Email"/>
        </div>
     
        <div className="col-auto">
@@ -224,9 +223,10 @@ function ModificarCliente(){
             </div>
           </div>         
         </div>          
-      </div>
-    </div>
-  </div>
+   
+<br></br>
+<br></br>
+<br></br>
 
 
   </>

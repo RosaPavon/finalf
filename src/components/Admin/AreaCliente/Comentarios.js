@@ -1,6 +1,6 @@
 import React from "react"
 import { useState, useEffect} from "react";
-import { Avatar} from 'antd';
+import { Avatar,Card} from 'antd';
 
 
 function Comentarios(){
@@ -26,11 +26,10 @@ function Comentarios(){
       
  let nombreUsuario = name.map((user, index) => {      
             return (                             
-              <li className="list-group-item" key={user._id}>
+              <li className="colortext2" key={user._id}>
               <Avatar size={44} src={user.imagen} />  
-              <span className="lead">{user.usuario}</span>    
-              <span className="lead">---------------------{user.email}</span> 
-            </li>              
+              <span className="lead">      {user.usuario}</span>    
+            </li>               
             )}); 
 
 
@@ -53,27 +52,28 @@ useEffect(()=>{
 
      
  let comentarios = coment.map((user, index) => {      
-           return (
-             <ul>
-             <h6>{user.titulo}</h6>              
-             <li className="list-group-item" key={user.id}>
-             <Avatar size={14} src={user.imagenComentario} />      
+           return ( 
+             <>
+            <h6 id="color">{user.titulo}</h6>  
+            <ul>              
+              <li className="colortext2" key={user.index}>
+              <Avatar size={34} src={user.imagenComentario} />      
              <span className="lead">{user.usuarioComentario}</span>
-             <p>{user.comentario}</p>
-         
-           </li>  
-           </ul>                          
+             <h6 id="blanco">{user.comentario}</h6>           
+              </li>   
+              </ul>           
+
+                   </> 
            )});  
 
 
   return(
       <>
          
-       <h3 className="text-lg font-medium leading-6 text-gray-900"  >{nombreUsuario}</h3> 
-        <div className="mt-5 md:mt-0 md:col-span-2">
-      <div action="#" method="POST"></div>
-        <div className="shadow sm:rounded-md sm:overflow-hidden">            
-        <div className="px-4 py-5 bg-white space-y-6 sm:p-6">
+                
+        <div className="px-4 py-5 bg-grey space-y-6 sm:p-6">
+        <h3 className="text-lg font-medium leading-6 text-gray-900"  >{nombreUsuario}</h3> 
+
         <div className="row g-3">              
        <div className="col-auto">
        </div>
@@ -101,9 +101,7 @@ useEffect(()=>{
             </div>
           </div>         
         </div>          
-      </div>
-    
-  </div>
+      
 
 
   </>

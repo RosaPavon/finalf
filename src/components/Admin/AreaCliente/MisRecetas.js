@@ -1,7 +1,7 @@
 import React from "react"
 import { Avatar, Rate, Radio } from 'antd';
 import { useState, useEffect} from "react";
-import {Form, Modal, Alert} from "react-bootstrap"
+import {Form, Modal, Alert, Col} from "react-bootstrap"
 import { FrownOutlined, MehOutlined, SmileOutlined } from '@ant-design/icons';
 
 
@@ -96,11 +96,10 @@ function MisRecetas(){
       
  let nombreUsuario = name.map((user, index) => {      
             return (                             
-              <li className="list-group-item" key={user.index}>
+              <li className="colortext2" key={user._id}>
               <Avatar size={44} src={user.imagen} />  
-              <span className="lead">{user.usuario}</span>    
-              <span className="lead">---------------------{user.email}</span> 
-            </li>              
+              <span className="lead">      {user.usuario}</span>    
+            </li>        
             )}); 
 
 //----------Mostrar las recetas------------
@@ -120,7 +119,7 @@ useEffect(()=>{
  let recetas = recetasUsuario.map((user, index) => {      
             return (
               <ul>              
-              <li className="list-group-item" key={user.index}>
+              <li className="colortext2" key={user.index}>
               <Avatar size={114} src={user.foto} />      
               <span className="lead">{user.titulo}</span>
              
@@ -179,67 +178,67 @@ function eliminarReceta() {
   return(
       <>
          
-       <h3 className="text-lg font-medium leading-6 text-gray-900"  >{nombreUsuario}</h3>        
-        <div className="mt-5 md:mt-0 md:col-span-2">
-      <div action="#" method="POST"></div>
-        <div className="shadow sm:rounded-md sm:overflow-hidden">            
-        <div className="px-4 py-5 bg-white space-y-6 sm:p-6">
+               
+        <div className="px-4 py-5 bg-grey space-y-6 sm:p-6">
         <div className="row g-3">              
-       <div className="col-auto">
-       </div>   
-       <div className="col-auto">   
-       <h3>Mis recetas</h3>
+      
+       <div className="col-auto"> 
+       <h3 className="text-lg font-medium leading-6 text-gray-900"  >{nombreUsuario}</h3>        
+  
+       <h3 id="blanco">Mis recetas</h3>
 
        <h3 className="text-lg font-medium leading-6 text-gray-900"  >{recetas}</h3> 
        <hr></hr>
        <div>
-          <h3>Modifica tu receta</h3>
-          <h5>Categoría</h5>
+          <h3 id="blanco">Modifica tu receta</h3>
+          <h5 id="blanco">Categoría</h5>
         <form className="row g-3 needs-validation" noValidate>
-        
-      <Radio.Group onChange={onChange} value={value}>      
       
-      <Radio value={"Entrantes"}>Entrantes</Radio>
-      <Radio value={"Acompañamiento"}>Acompañamiento</Radio>
-      <Radio value={"Arroz"}>Arroz </Radio>
-           
-      <Radio value={"Carnes y estofados"}>Carnes y estofados</Radio>
-      <Radio value={"Guisos"}>Guisos</Radio>
-      <Radio value={"Pasta y Pizzas"}>Pasta y Pizzas</Radio>
-     
-      <Radio value={"Verduras y Legumbres"}>Verduras y Legumbres</Radio>
-      <Radio value={"Pescado y Mariscos"}>Pescado y Mariscos</Radio>
-      <Radio value={"Postres y helados"}>Postres y helados</Radio>    
-     
+        
+      <Radio.Group onChange={onChange} value={value} >      
+      
+      <Col >
+      <Radio value={"Entrantes"} className="blancos">Entrantes  </Radio>
+      <Radio value={"Acompañamiento"} className="blancos">Acompañamiento</Radio>
+      <Radio value={"Arroz"} className="blancos">Arroz </Radio>           
+      <Radio value={"Carnes y estofados"} className="blancos">Carnes y estofados</Radio>
+      </Col>
+      <Col>
+      <Radio value={"Pasta y Pizzas"} className="blancos">Pasta y Pizzas</Radio>     
+      <Radio value={"Verduras y Legumbres"} className="blancos">Verduras y Legumbres</Radio>
+      <Radio value={"Pescado y Mariscos"} className="blancos">Pescado y Mariscos</Radio>
+      <Radio value={"Postres y helados"} className="blancos">Postres y helados</Radio>    
+      
+     </Col>
     </Radio.Group>
   
   </form>
   </div>
   <br></br>
-  <h5>Dificultad</h5>
-    <span>Baja  <Rate defaultValue={3} onChange={changeDif} character={({ index }) => customIcons[index + 1]} />  Alta</span>
+  <h5 id="blanco">Dificultad</h5>
+    <span id="blanco">Baja  <Rate defaultValue={3} onChange={changeDif} character={({ index }) => customIcons[index + 1]} />  Alta</span>
 
   <br></br>
   <br></br>
           
   <Form>
   <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-  <h5>Título</h5>
+  <h5 id="blanco">Título</h5>
   <Form.Control type="text" placeholder={`${titulo}`}   onChange={(e) => setModfTitulo(e.target.value)}
     value={modftitulo} />
   </Form.Group>
   <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1"  >
-  <h5>Ingredientes</h5>
+  <h5 id="blanco">Ingredientes</h5>
   <Form.Control as="textarea" rows={3}  placeholder={`${ingredientes}`}  onChange={(e) => setModfIngredientes(e.target.value)}
     value={modfingredientes}  />
   </Form.Group>
   <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea2">
-  <h5>Paso a paso</h5>
+  <h5 id="blanco">Paso a paso</h5>
   <Form.Control as="textarea" rows={6} placeholder={`${pasos}`}onChange={(e) =>  setModfReceta(e.target.value)}
     value={modfreceta}  />
   </Form.Group>
   <Form.Group className="mb-3" controlId="exampleForm.ControlInput3">
-  <h5>Cambia la imagen</h5>
+  <h5 id="blanco">Cambia la imagen</h5>
   <Form.Control type="text" placeholder={`${imagen}`}  onChange={(e) => setModfFoto(e.target.value)}
     value={modffoto}/>      
   </Form.Group>
@@ -277,8 +276,7 @@ Eliminar
     </Modal.Footer>     
       </div>
       </div>          
-      </div>          
-      </div>
+      
     
   </div>
 

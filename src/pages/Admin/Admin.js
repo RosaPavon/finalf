@@ -16,15 +16,14 @@ function Admin(){
 
     return(
         <>
-        <div id="home">
-        <h5>Área de cliente </h5> 
-        <Container>
+        <div id="homeclient">
+        <Container >
         
-         <Tabs tabPosition={"left"}>
+         <Tabs tabPosition={"left"} id="blanco" >
           <TabPane tab="Usuario" key="1">
-          <ModificarCliente/>
+          <ModificarCliente />
           </TabPane>
-          <TabPane tab="Mis Recetas" key="2">
+          <TabPane tab="Mis Recetas" key="2" >
             <MisRecetas/>
           </TabPane>
           <TabPane tab="Nueva receta" key="3">
