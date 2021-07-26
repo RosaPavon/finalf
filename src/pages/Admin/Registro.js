@@ -1,4 +1,4 @@
-import { Form, Button, Alert} from "react-bootstrap";
+import { Form, Alert} from "react-bootstrap";
 import { useState} from "react";
 import { Modal} from "react-bootstrap"
 import { Tabs } from 'antd';
@@ -20,7 +20,7 @@ function Registro() {
     const { TabPane } = Tabs;
 
     function registrar() {
-        fetch("http://localhost:3001/usuarios/registro", {
+        fetch(`${process.env.REACT_APP_API_URL}/usuarios/registro`, {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -51,7 +51,7 @@ function Registro() {
 
 
        function login() {
-        fetch("http://localhost:3001/login/login", {
+        fetch(`${process.env.REACT_APP_API_URL}/login/login`, {
           method: "POST", 
           headers: {
           "Content-Type": "application/json",

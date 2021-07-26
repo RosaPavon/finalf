@@ -32,7 +32,7 @@ function Home(){
 const [name, setName]=useState([]) 
 
   useEffect(()=>{    
-   fetch("http://localhost:3001/usuarios/misdatos", {
+   fetch(`${process.env.REACT_APP_API_URL}/usuarios/misdatos`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -68,7 +68,7 @@ const [name, setName]=useState([])
    }
 
 function nuevoComentario() {
-  fetch("http://localhost:3001/comentarios/nuevoComentario", {
+  fetch(`${process.env.REACT_APP_API_URL}/comentarios/nuevoComentario`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -104,7 +104,7 @@ const guardar = (props) => {
   }
 
   useEffect(()=>{    
-    fetch("http://localhost:3001/admin/guardarReceta", {
+    fetch(`${process.env.REACT_APP_API_URL}/admin/guardarReceta`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -141,7 +141,7 @@ function confirm() {
  //------------Receta ampliada----------------
 
   useEffect(()=>{    
-    fetch("http://localhost:3001/crearreceta/recetario", {
+    fetch(`${process.env.REACT_APP_API_URL}/crearreceta/recetario`, {
          headers: {
            "Content-Type": "application/json",
          }
@@ -153,9 +153,9 @@ function confirm() {
        
 let rutas = recetario.map((cook, index)=>{        
         return(
-          <Route path={"/logged/home/" + cook.titulo}>
+          <Route key={index} path={"/logged/home/" + cook.titulo}>
           <div key={index}>  
-            <Card 
+            <Card  key={index}
             cover={
               <>
               <img 
@@ -235,9 +235,9 @@ let rutas = recetario.map((cook, index)=>{
       //Categorias ampliadas
   let categorias = recetario.map((cook, index)=>{        
         return(
-          <Route path={"/logged/home/" + cook.categoria}>
-          <div key={index}>  
-            <Card 
+          <Route  key={cook.id} path={"/logged/home/" + cook.categoria}>
+          <div key={cook.id}>  
+            <Card  key={cook.id}
             cover={
               <>
               <img 

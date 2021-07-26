@@ -1,7 +1,6 @@
 import React from "react"
 import { Avatar} from 'antd';
 import { useState, useEffect} from "react";
-import { Card} from 'antd';
 
 
 function RecetasGuardadas(){
@@ -11,7 +10,7 @@ function RecetasGuardadas(){
   const [name, setName]=useState([]) 
   
   useEffect(()=>{    
-     fetch("http://localhost:3001/usuarios/misdatos", {
+     fetch(`${process.env.REACT_APP_API_URL}/usuarios/misdatos`, {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -43,7 +42,7 @@ function RecetasGuardadas(){
 
 
 useEffect(()=>{    
-  fetch("http://localhost:3001/admin/recetasguardadas", {
+  fetch(`${process.env.REACT_APP_API_URL}/admin/recetasguardadas`, {
        method: "POST",
        headers: {
          "Content-Type": "application/json",

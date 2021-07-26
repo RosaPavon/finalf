@@ -43,7 +43,7 @@ function MisRecetas(){
   setImagen(user.foto)}
 
   function modificarReceta() {
-    fetch("http://localhost:3001/crearreceta/editar", {
+    fetch(`${process.env.REACT_APP_API_URL}/crearreceta/editar`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
@@ -83,7 +83,7 @@ function MisRecetas(){
 //Mostrar nombre usuario-----------
 
     useEffect(()=>{    
-     fetch("http://localhost:3001/usuarios/misdatos", {
+     fetch(`${process.env.REACT_APP_API_URL}/usuarios/misdatos`, {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -105,7 +105,7 @@ function MisRecetas(){
 //----------Mostrar las recetas------------
 
 useEffect(()=>{    
-     fetch("http://localhost:3001/crearreceta/misrecetas", {
+     fetch(`${process.env.REACT_APP_API_URL}/crearreceta/misrecetas`, {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -154,7 +154,7 @@ useEffect(()=>{
 
 
 function eliminarReceta() {
-  fetch("http://localhost:3001/crearreceta/eliminar", {
+  fetch(`${process.env.REACT_APP_API_URL}/crearreceta/eliminar`, {
     method: "DELETE",
     headers: {
       "Content-Type": "application/json",

@@ -1,6 +1,6 @@
 import React from "react"
 import { useState, useEffect} from "react";
-import { Avatar,Card} from 'antd';
+import { Avatar } from 'antd';
 
 
 function Comentarios(){
@@ -13,7 +13,7 @@ function Comentarios(){
   
 
     useEffect(()=>{    
-     fetch("http://localhost:3001/usuarios/misdatos", {
+     fetch(`${process.env.REACT_APP_API_URL}/usuarios/misdatos`, {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -39,7 +39,7 @@ function Comentarios(){
 
  
 useEffect(()=>{    
-    fetch("http://localhost:3001/comentarios/comentariosUsers", {
+    fetch(`${process.env.REACT_APP_API_URL}/comentarios/comentariosUsers`, {
          method: "POST",
          headers: {
            "Content-Type": "application/json",

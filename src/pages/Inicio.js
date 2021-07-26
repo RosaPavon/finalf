@@ -29,7 +29,7 @@ function Inicio(){
 const [name, setName]=useState([]) 
 
   useEffect(()=>{    
-   fetch("http://localhost:3001/usuarios/misdatos", {
+   fetch(`${process.env.REACT_APP_API_URL}/usuarios/misdatos`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -55,7 +55,7 @@ const [name, setName]=useState([])
  //------------Receta ampliada----------------
 
   useEffect(()=>{    
-    fetch("http://localhost:3001/crearreceta/recetario", {
+    fetch(`${process.env.REACT_APP_API_URL}/crearreceta/recetario`, {
          headers: {
            "Content-Type": "application/json",
          }

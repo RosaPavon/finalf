@@ -13,7 +13,7 @@ function Cabecera(){
 
     useEffect(()=>{    
 
-        fetch("http://localhost:3001/usuarios/misdatos", {
+        fetch(`${process.env.REACT_APP_API_URL}/usuarios/misdatos`, {
              method: "POST",
              headers: {
                "Content-Type": "application/json",

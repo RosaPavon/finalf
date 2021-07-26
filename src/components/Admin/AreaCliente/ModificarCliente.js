@@ -19,7 +19,7 @@ function ModificarCliente(){
 
 
     useEffect(()=>{    
-     fetch("http://localhost:3001/usuarios/misdatos", {
+     fetch(`${process.env.REACT_APP_API_URL}/usuarios/misdatos`, {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -89,7 +89,7 @@ function ModificarCliente(){
     //----------------Editar Usuario-----------------
     
       function enviarNewInf() {
-          fetch("http://localhost:3001/usuarios/editar", {
+          fetch(`${process.env.REACT_APP_API_URL}/usuarios/editar`, {
             method: "PUT",
             headers: {
               "Content-Type": "application/json",
@@ -108,7 +108,7 @@ function ModificarCliente(){
 //---------------Editar email usuario--------------------
 
         function enviarNewEml() {
-          fetch("http://localhost:3001/usuarios/emailedit", {
+          fetch(`${process.env.REACT_APP_API_URL}/usuarios/emailedit`, {
             method: "PUT",
             headers: {
               "Content-Type": "application/json",
@@ -129,7 +129,7 @@ function ModificarCliente(){
   //--------------Editar avatar--------------------------
 
   function enviarNewImg() {
-    fetch("http://localhost:3001/usuarios/imageedit", {
+    fetch(`${process.env.REACT_APP_API_URL}/usuarios/imageedit`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",

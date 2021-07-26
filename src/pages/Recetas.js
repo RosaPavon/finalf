@@ -19,7 +19,7 @@ function Receta(props){
            >
             <h6>{props.titulo}</h6>
             <Link id="color"  to={`/logged/home/${props.titulo}`}>▸Receta </Link>
-            <Link id="blanco">   ▸  </Link>
+            <span id="blanco" >  ▸</span>
             <Link id="color"  to={`/logged/home/${props.categoria}`}>   ▸Categoria</Link>
 
       
