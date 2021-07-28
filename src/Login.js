@@ -11,7 +11,7 @@ function Login(props) {//si no ponemos props no recibe el usuario
     
     function enviar() {
       console.log("llamada1")
-      fetch("http://localhost:3001/login", {
+      fetch(`${process.env.REACT_APP_API_URL}/login`, {
         method: "POST",        
         headers: {
           "Content-Type": "application/json",
@@ -34,7 +34,7 @@ function Login(props) {//si no ponemos props no recibe el usuario
         }).then(()=>{
           console.log("Llamada2")
           if(feedback.logged){
-            fetch("http://localhost:3001/usuario",{
+            fetch(`${process.env.REACT_APP_API_URL}/usuario`,{
             method: "POST",
             headers: {
               "Content-Type": "application/json",

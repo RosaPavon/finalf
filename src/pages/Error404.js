@@ -1,8 +1,12 @@
 import React from "react"
+import {Image} from "react-bootstrap"
+import error from "../images/243521-P3UBC6-919.jpg"
+
 
 function Error404(){
     return(
-        <h2>Error 404</h2>
+        <Image src={error} fluid /> 
+
     )
 }
 

@@ -21,7 +21,6 @@ function Receta(props){
             <Link id="color"  to={`/${props.titulo}`}>▸Receta </Link>
             <Link id="blanco">   ▸  </Link>
             <Link id="color"  to={`/${props.categoria}`}>   ▸Categoria</Link>
-
       
        </Card>
         </div>
