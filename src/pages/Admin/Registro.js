@@ -36,11 +36,8 @@ function Registro() {
             setUsuario("")
             setEmail("")
             setPassword("")
-            setrepPassword("")
-
-           
-          });
-        
+            setrepPassword("")           
+          });        
       }
 
        //Login Usuario

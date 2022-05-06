@@ -318,7 +318,7 @@ let rutas = recetario.map((cook, index)=>{
     return(
         <>
   <BrowserRouter>
-        <div id="homehome">
+        <div>
         <br></br>
         <Image src={cookandcook} fluid  id="secciones"/>
         <br></br>
